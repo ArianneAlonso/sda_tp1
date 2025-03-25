@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mi Primer Trabajo de Seminario</title>
+    <style>
+        /*contenido centrado*/
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        div {
+            text-align: center;
+        }
+
+        #inputText {
+            font-size: 18px;
+            padding: 10px;
+            margin-bottom: 20px;
+        }
+
+        #changeColorBtn {
+            padding: 10px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <label for="inputText">escribe algo:</label><br>
+        <input type="text" id="inputText" placeholder="hola" />
+        <br>
+        <button id="changeColorBtn">cambio de color</button>
+    </div>
+
+    <script>
+        //cambiar color
+        let colorIndex = 0;
+        const colors = [
+            { background: "white", color: "black" },
+            { background: "black", color: "white" },
+            { background: "lightblue", color: "red" }
+        ];
+
+        document.getElementById("changeColorBtn").addEventListener("click", function() {
+            const textBox = document.getElementById("inputText");
+            colorIndex = (colorIndex + 1) % colors.length;
+            textBox.style.backgroundColor = colors[colorIndex].background;
+            textBox.style.color = colors[colorIndex].color;
+        });
+
+    </script>
+</body>
+</html>
